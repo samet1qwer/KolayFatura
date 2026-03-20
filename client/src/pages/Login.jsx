@@ -1,9 +1,9 @@
 import React from "react";
-
+import { Link } from "react-router-dom";
 function Login() {
   return (
     <div className="w-full h-screen bg-slate-100 flex items-center justify-center text-center">
-      <div className="w-full max-w-sm p-4 bg-white rounded-lg shadow-md">
+      <div className="py-8 px-10 mx-auto w-full max-w-md md:max-w-lg lg:max-w-lg bg-white rounded-lg shadow-md">
         <div className="flex flex-col items-center justify-center ">
           <div className="flex flex-row items-center space-x-2 justify-center ">
             <i className="fas fa-file-invoice text-blue-600 text-2xl"></i>
@@ -82,6 +82,14 @@ function Login() {
           <button className="w-full px-4 py-2.5 text-sm font-medium text-center text-white bg-blue-600 rounded-lg hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 mt-4 cursor-pointer">
             Giriş yap
           </button>
+          <span>
+            <p className="text-sm font-medium text-slate-500 mt-4">
+              Hesabınız yok mu?
+              <Link to="/login" className="text-blue-600 hover:underline ml-1">
+                kayıt ol
+              </Link>
+            </p>
+          </span>
         </div>
       </div>
     </div>
