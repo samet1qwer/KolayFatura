@@ -15,7 +15,7 @@ function Dashboard() {
         <div className="flex items-center gap-2">
           <div>
             <button
-              className="px-4 py-1.5 bg-blue-500 text-white rounded-lg hover:bg-blue-600 text-center flex items-center gap-2 justify-center  transition"
+              className="px-4 py-1.5 bg-blue-500 text-white rounded-lg hover:bg-blue-600 text-center flex items-center gap-2 justify-center  transition cursor-pointer"
               onClick={() => setModal(true)}
             >
               <i className="fas fa-plus text-xl"></i>
@@ -36,7 +36,7 @@ function Dashboard() {
           <div className="w-full max-w-md bg-white rounded-2xl shadow-xl p-6 relative">
             <button
               onClick={() => setModal(false)}
-              className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 transition"
+              className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 transition cursor-pointer"
             >
               <i className="fas fa-times text-lg"></i>
             </button>
@@ -108,7 +108,7 @@ function Dashboard() {
 
               <button
                 type="submit"
-                className="w-full bg-blue-500 text-white py-2.5 rounded-lg hover:bg-blue-600 transition font-medium"
+                className="w-full bg-blue-500 text-white py-2.5 rounded-lg hover:bg-blue-600 transition font-medium cursor-pointer"
               >
                 Fatura oluştur
               </button>
