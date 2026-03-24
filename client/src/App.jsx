@@ -20,6 +20,7 @@ function App() {
         <Route path="/auth/register" element={<Register />} />
 
         <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="*" element={<Notfound />} />
       </Routes>
     </div>
   );
