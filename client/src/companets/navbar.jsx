@@ -12,14 +12,23 @@ function navbar() {
         </div>
 
         <ul className="hidden xl:flex items-center space-x-6 text-gray-700">
-          <li className="cursor-pointer hover:text-blue-500 transition">
-            Home
+          <li className="cursor-pointer relative group">
+            <span className="text-gray-700 group-hover:text-blue-500 transition">
+              Anasayfa
+            </span>
+            <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-500 group-hover:w-full transition-all duration-300 ease-out"></span>
           </li>
-          <li className="cursor-pointer hover:text-blue-500 transition">
-            About
+          <li className="cursor-pointer relative group">
+            <span className="text-gray-700 group-hover:text-blue-500 transition">
+              hakkımızda
+            </span>
+            <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-500 group-hover:w-full transition-all duration-300 ease-out"></span>
           </li>
-          <li className="cursor-pointer hover:text-blue-500 transition">
-            Contact
+          <li className="cursor-pointer relative group">
+            <span className="text-gray-700 group-hover:text-blue-500 transition">
+              iletişim
+            </span>
+            <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-500 group-hover:w-full transition-all duration-300 ease-out"></span>
           </li>
         </ul>
 
