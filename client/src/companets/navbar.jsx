@@ -1,5 +1,5 @@
 import React from "react";
-
+import { Link } from "react-router-dom";
 function navbar() {
   return (
     <nav className="fixed top-0 z-50 w-full bg-white shadow-md">
@@ -23,13 +23,19 @@ function navbar() {
           </li>
         </ul>
 
-        <div className="hidden xl:flex items-center space-x-3">
-          <button className="px-4 py-1.5 border border-gray-300 rounded text-gray-700 hover:bg-gray-100 transition">
+        <div className="hidden xl:flex items-center space-x-1">
+          <Link
+            to="/auth/login"
+            className="px-4 py-1.5  rounded-lg cursor-pointer text-gray-700 hover:bg-green-500 hover:text-white hover:shadow-md transition duration-300"
+          >
             Giriş yap
-          </button>
-          <button className="px-4 py-1.5 bg-blue-500 text-white rounded hover:bg-blue-600 transition">
-            Kayıt ol
-          </button>
+          </Link>
+          <Link
+            to="/auth/register"
+            className="cursor-pointer px-4 py-1.5 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition "
+          >
+            ücretsiz deneyin
+          </Link>
         </div>
 
         <button className="xl:hidden p-2 rounded-md text-gray-500 hover:bg-gray-100 transition">

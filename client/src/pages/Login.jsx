@@ -85,7 +85,10 @@ function Login() {
           <span>
             <p className="text-sm font-medium text-slate-500 mt-4">
               Hesabınız yok mu?
-              <Link to="/login" className="text-blue-600 hover:underline ml-1">
+              <Link
+                to="/auth/register"
+                className="text-blue-600 hover:underline ml-1"
+              >
                 kayıt ol
               </Link>
             </p>

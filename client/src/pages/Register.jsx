@@ -116,7 +116,10 @@ function Register() {
           <span>
             <p className="text-sm font-medium text-slate-500 mt-4">
               Hesabınız var mı?
-              <Link to="/login" className="text-blue-600 hover:underline ml-1">
+              <Link
+                to="/auth/login"
+                className="text-blue-600 hover:underline ml-1"
+              >
                 giriş yap
               </Link>
             </p>
