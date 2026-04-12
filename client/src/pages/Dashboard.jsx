@@ -196,6 +196,12 @@ function Dashboard() {
                   <th className="text-left text-xs font-semibold text-gray-400 uppercase px-5 py-3">
                     Durum
                   </th>
+                  <th className="text-left text-xs font-semibold text-gray-400 uppercase px-5 py-3">
+                    indir
+                  </th>
+                  <th className="text-left text-xs font-semibold  text-gray-400 uppercase px-5 py-3">
+                    sil
+                  </th>
                 </tr>
               </thead>
 
@@ -215,8 +221,18 @@ function Dashboard() {
                     ₺2.500
                   </td>
                   <td className="px-5 py-3">
-                    <span className="text-xs px-3 py-1 rounded-full bg-green-100 text-green-600">
+                    <span className="text-xs px-3 py-1 rounded-full bg-green-100 text-green-600 cursor-pointer">
                       Ödendi
+                    </span>
+                  </td>
+                  <td className="px-5 py-3 text-left">
+                    <span className="text-xl text-green-600 cursor-pointer">
+                      <i className="fas fa-download"></i>
+                    </span>
+                  </td>
+                  <td className="px-5 py-3 text-left">
+                    <span className="text-xl text-red-500 cursor-pointer">
+                      <i className="fas fa-trash-alt"></i>
                     </span>
                   </td>
                 </tr>
@@ -240,6 +256,16 @@ function Dashboard() {
                       Bekliyor
                     </span>
                   </td>
+                  <td className="px-5 py-3 text-left">
+                    <span className="text-xl text-green-600 cursor-pointer">
+                      <i className="fas fa-download"></i>
+                    </span>
+                  </td>
+                  <td className="px-5 py-3 text-left">
+                    <span className="text-xl text-red-500 cursor-pointer">
+                      <i className="fas fa-trash-alt"></i>
+                    </span>
+                  </td>
                 </tr>
 
                 <tr className="border-b border-gray-100 hover:bg-slate-50 transition">
@@ -259,6 +285,16 @@ function Dashboard() {
                   <td className="px-5 py-3">
                     <span className="text-xs px-3 py-1 rounded-full bg-red-100 text-red-600">
                       İptal
+                    </span>
+                  </td>
+                  <td className="px-5 py-3 text-left">
+                    <span className="text-xl text-green-600 cursor-pointer">
+                      <i className="fas fa-download"></i>
+                    </span>
+                  </td>
+                  <td className="px-5 py-3 text-left">
+                    <span className="text-xl text-red-500 cursor-pointer">
+                      <i className="fas fa-trash-alt"></i>
                     </span>
                   </td>
                 </tr>
