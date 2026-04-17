@@ -6,7 +6,7 @@ const path = require("path");
 const userModel = require("../../model/userModel");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
-
+const { generateToken } = require("../../middlewares/auth");
 router.post("/login", async (req, res) => {
   try {
     const { email, password } = req.body;
@@ -23,9 +23,7 @@ router.post("/login", async (req, res) => {
       return res.status(401).json({ message: "E-posta veya şifre hatalı" });
     }
 
-    const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, {
-      expiresIn: "1d",
-    });
+    const token = generateToken(user);
 
     return res.status(200).json({
       message: "Giriş başarılı",
