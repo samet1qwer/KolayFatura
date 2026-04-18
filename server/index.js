@@ -30,8 +30,10 @@ seedUsers();
 
 // routers
 const home = require("./routers/user/home");
+const auth = require("./routers/user/Auth");
 
 app.use("/", home);
+app.use("/auth", auth);
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
