@@ -13,7 +13,7 @@ export const apiCall = createAsyncThunk(
     try {
       const token = localStorage.getItem("token");
 
-      const response = await fetch(`http://localhost:3000/api${url}`, {
+      const response = await fetch(`http://127.0.0.1:3000/api${url}`, {
         method,
         headers: {
           "Content-Type": "application/json",
@@ -24,7 +24,7 @@ export const apiCall = createAsyncThunk(
 
       const result = await response.json();
 
-      if (!response.status === 201) {
+      if (!response.ok) {
         return thunkAPI.rejectWithValue(result);
       }
 
