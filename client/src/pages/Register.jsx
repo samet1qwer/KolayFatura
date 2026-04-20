@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import Swal from "sweetalert2";
 import { apiCall } from "../redux/slices/api";
 
 function Register() {

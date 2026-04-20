@@ -3,6 +3,6 @@ import apiReducer from "./slices/api";
 
 export const store = configureStore({
   reducer: {
-    apiCall: apiReducer,
+    api: apiReducer,
   },
 });
