@@ -23,7 +23,13 @@ function Register() {
 
   useEffect(() => {
     if (success) {
-      navigate("/auth/login");
+      setMessage("Kayıt başarılı! Giriş ekranına yönlendiriliyorsunuz.");
+
+      const timer = setTimeout(() => {
+        navigate("/auth/login");
+      }, 3000);
+
+      return;
     }
   }, [success]);
 
