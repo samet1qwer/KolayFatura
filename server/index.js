@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 const port = 3000;
 const cors = require("cors");
-
+app.use(express.json());
 app.use(
   cors({
     origin: "*",
@@ -32,8 +32,8 @@ seedUsers();
 const home = require("./routers/user/home");
 const auth = require("./routers/user/Auth");
 
-app.use("/", home);
-app.use("/auth", auth);
+app.use("/api/", home);
+app.use("/api/auth", auth);
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);

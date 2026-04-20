@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import axios from "axios";
 function Register() {
   return (
     <div className="w-full h-screen bg-slate-100 flex items-center justify-center text-center">
