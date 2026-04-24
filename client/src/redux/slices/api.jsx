@@ -5,6 +5,7 @@ const initialState = {
   error: null,
   data: null,
   success: false,
+  token: localStorage.getItem("token") || null,
 };
 
 export const apiCall = createAsyncThunk(
@@ -68,6 +69,10 @@ const apiSlice = createSlice({
         state.loading = false;
         state.data = action.payload;
         state.success = true;
+        if (action.payload?.token) {
+          state.token = action.payload.token;
+          localStorage.setItem("token", action.payload.token);
+        }
       })
 
       .addCase(apiCall.rejected, (state, action) => {
