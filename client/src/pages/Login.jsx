@@ -1,6 +1,54 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { apiCall } from "../redux/slices/api";
+
 function Login() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [message, setMessage] = useState("");
+
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const { loading, error, data, success } = useSelector((state) => state.api);
+  useEffect(() => {
+    if (message) {
+      Swal.fire({
+        text: message,
+        icon: "info",
+        draggable: true,
+      });
+    }
+  }, [message]);
+  useEffect(() => {
+    if (error) {
+      setMessage(error?.message || error);
+    }
+  }, [error]);
+
+  useEffect(() => {
+    if (success) {
+      setMessage("Giriş başarılı! Ana sayfaya yönlendiriliyorsunuz.");
+
+      const timer = setTimeout(() => {
+        navigate("/dashboard");
+      }, 3000);
+
+      return () => clearTimeout(timer);
+    }
+  }, [success, navigate]);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    dispatch(
+      apiCall({
+        url: "/auth/login",
+        method: "POST",
+        data: { email, password },
+      }),
+    );
+  };
   return (
     <div className="w-full h-screen bg-slate-100 flex items-center justify-center text-center">
       <div className="py-8 px-10 mx-auto w-full max-w-md md:max-w-lg lg:max-w-lg bg-white rounded-lg shadow-md">
@@ -33,6 +81,8 @@ function Login() {
             <input
               type="email"
               id="email"
+              onChange={(e) => setEmail(e.target.value)}
+              name="email"
               className="bg-slate-50 border border-slate-300 text-slate-800 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
               placeholder="Email"
               required
@@ -50,6 +100,8 @@ function Login() {
               type="password"
               id="password"
               className="bg-slate-50 border border-slate-300 text-slate-800 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+              name="password"
+              onChange={(e) => setPassword(e.target.value)}
               placeholder="Şifre"
               required
             />
@@ -79,7 +131,10 @@ function Login() {
         </form>
 
         <div>
-          <button className="w-full px-4 py-2.5 text-sm font-medium text-center text-white bg-blue-600 rounded-lg hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 mt-4 cursor-pointer">
+          <button
+            className="w-full px-4 py-2.5 text-sm font-medium text-center text-white bg-blue-600 rounded-lg hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 mt-4 cursor-pointer"
+            onClick={handleSubmit}
+          >
             Giriş yap
           </button>
           <span>
