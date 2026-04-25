@@ -13,7 +13,15 @@ function Register() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const { loading, error, data, success } = useSelector((state) => state.api);
+  const { loading, error, data, success, token } = useSelector(
+    (state) => state.api,
+  );
+
+  useEffect(() => {
+    if (token) {
+      navigate("/dashboard");
+    }
+  }, [token, navigate]);
 
   useEffect(() => {
     if (error) {
