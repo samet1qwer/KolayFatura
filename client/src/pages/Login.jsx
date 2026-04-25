@@ -6,7 +6,7 @@ import { apiCall } from "../redux/slices/api";
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [message, setMessage] = useState("");
+  const [message2, setMessage2] = useState("");
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -21,23 +21,23 @@ function Login() {
   }),
     [token, navigate]);
   useEffect(() => {
-    if (message) {
+    if (message2) {
       Swal.fire({
-        text: message,
+        text: message2,
         icon: "info",
         draggable: true,
       });
     }
-  }, [message]);
+  }, [message2]);
   useEffect(() => {
     if (error) {
-      setMessage(error?.message || error);
+      setMessage2(error?.message2 || error);
     }
   }, [error]);
 
   useEffect(() => {
     if (success) {
-      setMessage("Giriş başarılı! Ana sayfaya yönlendiriliyorsunuz.");
+      setMessage2("Giriş başarılı! Ana sayfaya yönlendiriliyorsunuz.");
 
       const timer = setTimeout(() => {
         navigate("/dashboard");

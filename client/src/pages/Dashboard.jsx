@@ -1,6 +1,8 @@
 import React from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import swall from "sweetalert2";
+
 function Dashboard() {
   const [modal, setModal] = useState(false);
   const Navigate = useNavigate();
@@ -19,7 +21,15 @@ function Dashboard() {
             <button
               className="px-2 py-1.5 bg-red-400 text-white rounded-lg hover:bg-red-600 text-center flex items-center gap-2 justify-center  transition cursor-pointer"
               onClick={() => {
-                Navigate("/logout");
+                swall.fire({
+                  title: "Çıkış Yapıldı",
+                  icon: "success",
+                  draggable: false,
+                });
+
+                setTimeout(() => {
+                  Navigate("/logout");
+                }, 2000);
               }}
             >
               <i className="fas fa-sign-out text-lg"></i>

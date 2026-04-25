@@ -6,7 +6,7 @@ import { apiCall, logout } from "../redux/slices/api";
 function Logout() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const { token, success } = useSelector((state) => state.api);
+  const { token, success, error } = useSelector((state) => state.api);
   useEffect(() => {
     if (!token) {
       navigate("/auth/login");
@@ -21,7 +21,11 @@ function Logout() {
       navigate("/auth/login");
     }
   }, [success, dispatch, navigate]);
-
+  useEffect(() => {
+    if (error) {
+      console.log(error);
+    }
+  }, [error]);
   return;
 }
 

@@ -84,7 +84,7 @@ router.post("/register", async (req, res) => {
   }
 });
 
-router.get("/logout", verifyToken, (req, res) => {
+router.get("/logout", (req, res) => {
   try {
     res.status(200).json({ message: "Cıkıs basarılı" });
   } catch (error) {
