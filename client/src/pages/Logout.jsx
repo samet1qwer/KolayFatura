@@ -1,14 +1,27 @@
-import React from "react";
+import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { apiCall } from "../redux/slices/api";
+import { apiCall, logout } from "../redux/slices/api";
 
 function Logout() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const { token } = useSelector((state) => state.api);
-  dispatch(apiCall({ url: "/auth/logout", method: "GET" }));
-  navigate("/auth/login");
+  const { token, success } = useSelector((state) => state.api);
+  useEffect(() => {
+    if (!token) {
+      navigate("/auth/login");
+      return;
+    }
+    dispatch(apiCall({ url: "/auth/logout", method: "GET" }));
+  }, [token, dispatch, navigate]);
+
+  useEffect(() => {
+    if (success) {
+      dispatch(logout());
+      navigate("/auth/login");
+    }
+  }, [success, dispatch, navigate]);
+
   return;
 }
 

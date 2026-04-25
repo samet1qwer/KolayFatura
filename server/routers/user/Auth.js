@@ -6,7 +6,7 @@ const path = require("path");
 const userModel = require("../../model/userModel");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
-const { generateToken } = require("../../middlewares/auth");
+const { generateToken, verifyToken } = require("../../middlewares/auth");
 const validator = require("validator");
 
 router.post("/login", async (req, res) => {
@@ -78,6 +78,15 @@ router.post("/register", async (req, res) => {
     await user.save();
 
     return res.status(201).json({ message: "Kullanıcı oluşturuldu" });
+  } catch (error) {
+    console.error(error);
+    return res.status(500).json({ message: "Sunucu hatası" });
+  }
+});
+
+router.get("/logout", verifyToken, (req, res) => {
+  try {
+    res.status(200).json({ message: "Cıkıs basarılı" });
   } catch (error) {
     console.error(error);
     return res.status(500).json({ message: "Sunucu hatası" });
