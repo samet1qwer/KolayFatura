@@ -1,8 +1,9 @@
 import React from "react";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 function Dashboard() {
   const [modal, setModal] = useState(false);
-
+  const Navigate = useNavigate();
   return (
     <div className="w-full  h-screen bg-slate-100 ">
       <nav className="fixed top-0 z-50 w-full px-4 py-3 flex justify-between items-center bg-white shadow-md">
@@ -12,7 +13,18 @@ function Dashboard() {
             Fatura oluşturucu
           </h1>
         </div>
-        <div className="flex items-center gap-2">
+
+        <div className="flex items-center justify-center gap-2">
+          <div>
+            <button
+              className="px-2 py-1.5 bg-red-400 text-white rounded-lg hover:bg-red-600 text-center flex items-center gap-2 justify-center  transition cursor-pointer"
+              onClick={() => {
+                Navigate("/logout");
+              }}
+            >
+              <i className="fas fa-sign-out text-lg"></i>
+            </button>
+          </div>
           <div>
             <button
               className="px-4 py-1.5 bg-blue-500 text-white rounded-lg hover:bg-blue-600 text-center flex items-center gap-2 justify-center  transition cursor-pointer"
